@@ -11,6 +11,8 @@ Run `make` to build `./bin/s3.so`. Then use with Fluent Bit:
 -p "bucket=fluent-bit-s3-bucket"
 ```
 
+You can build your own image with Dockerfile.
+
 
 ### Plugin Options
 
@@ -60,11 +62,14 @@ AWS official distribute a container image with Fluent Bit and these plugins.
 * Image: [github.com/aws/aws-for-fluent-bit](https://github.com/aws/aws-for-fluent-bit)
 
 * Plugin:
- * [amazon-kinesis-firehose-for-fluent-bit](https://github.com/aws/amazon-kinesis-firehose-for-fluent-bit)
- * [amazon-cloudwatch-logs-for-fluent-bit](https://github.com/aws/amazon-cloudwatch-logs-for-fluent-bit)
- * [amazon-kinesis-streams-for-fluent-bit](https://github.com/aws/amazon-kinesis-streams-for-fluent-bit)
+  * [amazon-kinesis-firehose-for-fluent-bit](https://github.com/aws/amazon-kinesis-firehose-for-fluent-bit)
+  * [amazon-cloudwatch-logs-for-fluent-bit](https://github.com/aws/amazon-cloudwatch-logs-for-fluent-bit)
+  * [amazon-kinesis-streams-for-fluent-bit](https://github.com/aws/amazon-kinesis-streams-for-fluent-bit)
 * Docker hub: [amazon/aws-for-fluent-bit](https://hub.docker.com/r/amazon/aws-for-fluent-bit/tags)
 
+### Official output plugin
+
+* [fuentbit.io](https://docs.fluentbit.io/manual/output)
 
 
 ## License
