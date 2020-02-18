@@ -68,7 +68,7 @@ func newS3Output(ctx unsafe.Pointer, pluginID int) (*s3plugin.OutputPlugin, erro
 
 	prefix := output.FLBPluginConfigKey(ctx, "prefix")
 	logrus.Infof("[s3 %d] plugin parameter prefix = '%s'\n", pluginID, prefix)
-	gzip := getBoolParam(ctx, "gzip", false)
+	gzip := getBoolParam(ctx, "gzip", true)
 	logrus.Infof("[s3 %d] plugin parameter gzip = '%t'\n", pluginID, gzip)
 	return s3plugin.NewOutputPlugin(region, bucket, prefix, gzip, pluginID)
 }
