@@ -41,5 +41,5 @@ func TestAddRecord(t *testing.T) {
 	retCode := output.AddRecord(record, "mytag", timestamp)
 
 	assert.Equal(t, retCode, fluentbit.FLB_OK, "Expected return code to be FLB_OK")
-	assert.Len(t, output.logs, 1, "Expected output to contain 1 record")
+	assert.True(t, output.logs.Bytes() > 1, "Expected output to contain 1 record")
 }
