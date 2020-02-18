@@ -11,7 +11,19 @@ Run `make` to build `./bin/s3.so`. Then use with Fluent Bit:
 -p "bucket=fluent-bit-s3-bucket"
 ```
 
-You can build your own image with Dockerfile.
+Build your own image use Dockerfile, please setup aws region and  bucket name in fluent-bit.conf first.
+
+```bash
+
+[OUTPUT]
+    Name  s3
+    Match *
+    region <aws region etc. us-east-1>
+    bucket <bucket name>
+    prefix logs    
+    gzip  true
+
+```
 
 
 ### Plugin Options
