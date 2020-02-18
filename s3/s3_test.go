@@ -15,22 +15,14 @@ package s3
 
 import (
 	"bytes"
-	"os"
 	"testing"
 	"time"
 
-	"github.com/aws/amazon-kinesis-firehose-for-fluent-bit/plugins"
 	fluentbit "github.com/fluent/fluent-bit-go/output"
-	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestAddRecord(t *testing.T) {
-	timer, _ := plugins.NewTimeout(func(d time.Duration) {
-		logrus.Errorf("[s3] timeout threshold reached: Failed to send logs for %v\n", d)
-		logrus.Error("[s3] Quitting Fluent Bit")
-		os.Exit(1)
-	})
 
 	output := OutputPlugin{
 		region: "us-east-1",
@@ -45,9 +37,9 @@ func TestAddRecord(t *testing.T) {
 		"somekey": []byte("some value"),
 	}
 
-	timestamp = time.Now()
+	timestamp := time.Now()
 	retCode := output.AddRecord(record, "mytag", timestamp)
 
 	assert.Equal(t, retCode, fluentbit.FLB_OK, "Expected return code to be FLB_OK")
-	assert.Len(t, output.records, 1, "Expected output to contain 1 record")
+	assert.Len(t, output.logs, 1, "Expected output to contain 1 record")
 }
